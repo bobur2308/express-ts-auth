@@ -47,6 +47,33 @@ class UserController{
       handleError(res, 500, 'Internal server error!', error);
     }
   }
+  async LoginUser(req:Request,res:Response):Promise<void>{
+    try {
+      const {user_name,password} = req.body
+      const user = await UserModel.findOne(user_name)
+
+      if(!user){
+        handleError(res,404,'User is not found!','')
+        return
+      }
+      if(bcrypt.compare(password,user.password) != undefined){
+        handleError(res,400,'Password is incorrect','')
+      }
+
+      res.status(200).json({
+        success:true,
+        status:200,
+        data:{
+          user
+        }
+      })
+
+
+    } catch (error) {
+      handleError(res, 500, 'Internal server error!', error);
+    }
+  }
+
 }
 
 export default new UserController()

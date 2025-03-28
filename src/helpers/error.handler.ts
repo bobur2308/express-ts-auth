@@ -8,11 +8,15 @@ interface AppError {
 }
 
 // Error handling function
-export const handleError = (res: Response, status: number, message: string) => {
+export const handleError = (res: Response, status: number, message: string,error:any) => {
+  console.error(error)
   return res.status(status).json({
     success: false,
     status,
-    message,
+    error:{
+      message,
+      error_message:error?.errors[0]?.message
+    },
   });
 };
 

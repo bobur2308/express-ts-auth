@@ -1,1 +1,1 @@
-{"root":["./src/index.ts","./src/config/db.ts","./src/controllers/post.controller.ts","./src/helpers/error.handler.ts","./src/models/post.model.ts","./src/routes/post.router.ts"],"version":"5.8.2"}
+{"root":["./src/index.ts","./src/config/database.ts","./src/controllers/auth.controller.ts","./src/helpers/error.handler.ts","./src/models/user.model.ts","./src/routes/auth.router.ts"],"version":"5.8.2"}
